@@ -3,7 +3,8 @@
 # https://academy.subquery.network/build/graphql.html#indexing-by-non-primary-key-field
 
 type Attestation @entity {
-  id: ID! #id is ClaimHashOf
+  id: ID! #I would not use the ClaimHashOf as the ID because a claim can be attested several times
+  ClaimHashOf: String! @index
   createdDate: Date! #date of creation of the attestation
   createdBlock: BigInt! #block of creation of the attestation
   creator: String! # Account address
