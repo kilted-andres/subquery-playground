@@ -35,7 +35,10 @@ const project: SubstrateProject = {
      * You can get them from OnFinality for free https://app.onfinality.io
      * https://documentation.onfinality.io/support/the-enhanced-api-service
      */
-    endpoint: [ "wss://spiritnet.api.onfinality.io/public-ws","wss://spiritnet.kilt.io" ],
+    endpoint: [
+      "wss://spiritnet.api.onfinality.io/public-ws",
+      "wss://spiritnet.kilt.io",
+    ],
     // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
     dictionary:
       "https://api.subquery.network/sq/subquery/kilt-spiritnet-dictionary",
@@ -46,7 +49,7 @@ const project: SubstrateProject = {
   dataSources: [
     {
       kind: SubstrateDatasourceKind.Runtime,
-      startBlock: 1,
+      startBlock: 0, // was originally 1
       mapping: {
         file: "./dist/index.js",
         handlers: [
